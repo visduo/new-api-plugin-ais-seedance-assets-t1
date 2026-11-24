@@ -5,14 +5,14 @@ export const meta = {
     apiVersion: 1,
     key: "visduo_ais-seedance-assets-t1",
     name: {
-        en: "AIS Service Seedance Assets T1",
-        zh: "AIS Service Seedance 素材库 T1",
+        en: "EchoStack Seedance Assets T1",
+        zh: "EchoStack Seedance 素材库 T1",
     },
     description: {
         en: "Import public images, videos and audio into Seedance asset groups",
         zh: "将公网图片、视频和音频导入 Seedance 素材组",
     },
-    version: "1.0.0",
+    version: "1.1.0",
     author: { name: "多栈科技" },
     website: "https://www.echostack.net/",
     fetchMode: "per_task",

@@ -1,13 +1,13 @@
 ---
 locale: zh-CN
 ---
-# AIS Service Seedance 素材库 T1
+# EchoStack Seedance 素材库 T1
 
 通过 New API 将公网图片、视频和音频导入 Seedance 素材组。
 
 ## 渠道设置
 
-渠道类型选任务插件（61），绑定 `AIS Service Seedance 素材库 T1`。Base URL 和密钥从 AIS Service 网关控制台中获取。插件不内置默认地址，渠道 Base URL 为必填项。
+渠道类型选任务插件（61），绑定 `EchoStack Seedance 素材库 T1`。Base URL 和密钥从 EchoStack 网关控制台中获取。插件不内置默认地址，渠道 Base URL 为必填项。
 
 如果上游是另一台 New API 网关，渠道类型选 New API（60），填写该网关的地址和令牌。上游网关也需要安装本插件。
 

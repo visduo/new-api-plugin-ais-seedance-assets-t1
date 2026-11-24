@@ -2,13 +2,13 @@
 translations:
   zh-CN: README.zh-CN.md
 ---
-# AIS Service Seedance Assets T1
+# EchoStack Seedance Assets T1
 
 Imports public images, videos and audio into Seedance asset groups through New API.
 
 ## Channel setup
 
-Choose the Task Plugin (61) channel type and bind `AIS Service Seedance Assets T1`. Enter the Base URL and key from the AIS Service gateway console. The plugin ships no default address, so the channel Base URL is required.
+Choose the Task Plugin (61) channel type and bind `EchoStack Seedance Assets T1`. Enter the Base URL and key from the EchoStack gateway console. The plugin ships no default address, so the channel Base URL is required.
 
 If the upstream is another New API gateway, choose the New API (60) channel type and enter that gateway's address and token. The upstream gateway also needs this plugin installed.
 
