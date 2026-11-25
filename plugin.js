@@ -9,7 +9,7 @@ export const meta = {
         en: "Import public images, videos and audio into Seedance asset groups",
         zh: "将公网图片、视频和音频导入 Seedance 素材组",
     },
-    version: "1.2.0",
+    version: "1.2.1",
     author: { name: "多栈科技" },
     website: "https://www.echostack.net/",
     fetchMode: "per_task",
@@ -391,6 +391,38 @@ export function parseSubmitResponse(ctx, response) {
 
 export function extractUsage() {
     return { requests: 1 };
+}
+
+export function buildQueryRequest(ctx) {
+    const base = upstreamBase(ctx);
+    return {
+        url: base + "/ais-seedance-assets-t1/v1/asset/get",
+        method: "POST",
+        headers: {
+            Authorization: authorization(ctx),
+            "Content-Type": "application/json",
+        },
+        body: { id: requiredString(ctx.taskId, "id") },
+    };
+}
+
+export function parseTaskResult(ctx, body) {
+    const result = object(body) && object(body.result) ? body.result : {};
+    const status = trimmed(result.Status || result.status || (object(body) ? body.status : ""));
+    if (status === "Active" || status === "Success" || status === "Succeeded") {
+        return { status: "SUCCESS", progress: "100%" };
+    }
+    if (status === "Processing" || status === "Pending" || status === "Queued") {
+        return { status: "IN_PROGRESS", progress: "50%" };
+    }
+    if (status === "Failed" || status === "Failure" || status === "Error") {
+        return {
+            status: "FAILURE",
+            progress: "100%",
+            reason: upstreamMessage(body) || "Seedance asset processing failed",
+        };
+    }
+    return { status: "UNKNOWN" };
 }
 
 function copyObject(value) {
